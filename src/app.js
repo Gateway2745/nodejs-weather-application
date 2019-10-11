@@ -12,23 +12,15 @@ const viewsPath =  path.join(__dirname, '../templates/views');
 const partialsPath =  path.join(__dirname, '../templates/partials');
 
 app.set('views', viewsPath);
-app.set('view engine' , 'hbs')
+app.set('view engine' , 'ejs')
 hbs.registerPartials(partialsPath)
 
 app.use(express.static(publicDirectoryPath))
 
 app.get('/',(req,res) => {
     res.render('index' ,{
-        title:"Home Page",
-        loc : "bangalore",
+        loc : "WEATHER FORECAST",
     })
-})
-
-app.get('/about' , (req,res) => {
-    res.render('about' , {
-        title : "about page!",
-        name : "rohit",
-    });
 })
 
 app.get('/weather' , (req,res) => {
@@ -57,13 +49,6 @@ app.get('/weather' , (req,res) => {
         }) 
     })
     
-})
-
-app.get('/help' , (req,res) => {
-    res.render('help' , {
-        msg : " This is the great help page!!",
-        title : "this is where you get help!!",
-    })
 })
 
 app.listen(port , () => {
