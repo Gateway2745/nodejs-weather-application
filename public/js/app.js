@@ -9,7 +9,7 @@ weatherForm.addEventListener('click' , (e) => {
     const location = search.value;
     console.log(location);
     p1.textContent = "LOADING..."
-    p2.textContent = "LOADING..."
+    p2.textContent = ""
     fetch(`/weather?address=${location}`).then((response) => {
     response.json().then((data) => {
         if('error' in data) p1.textContent = data.error;
